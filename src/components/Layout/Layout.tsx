@@ -18,8 +18,10 @@ const Layout = ()=>{
     const classes = useStyles()
     const [city, setCityName] = useState<string>('')
     const [weather, setData] = useState<any>({})
+
     const setCity = (event: any)=>{
       setCityName(event.target.value)
+      console.log(city)
     }
     const searchHandler = async()=>{
         const data =  await fetchWeather(city)
@@ -30,7 +32,11 @@ const Layout = ()=>{
         <Grid container direction="column"  className={classes.root}>
             <Header setCity={setCity} search={searchHandler} />
             <Main cityName={weather.name ? weather.name : city} temp={weather.main && (Math.round(weather.main.temp))}/>
-            <Footer/>
+            <Footer 
+            country={weather.sys && (weather.sys.country)}
+            humidity={weather.main && (weather.main.humidity)}
+            cloud={weather.wind && (weather.wind.speed)}
+            />
         </Grid>
     )
 }
