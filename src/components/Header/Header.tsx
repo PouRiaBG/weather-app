@@ -2,7 +2,6 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
@@ -18,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     minHeight: 128,
-    alignItems: 'flex-start',
+    alignItems: 'baseline',
+    justifyContent : 'space-between',
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(2),
   },
@@ -32,9 +32,10 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     top : "7rem",
   },
-  inputInput: {
-    position : "absolute",
-    top : ""
+    searchInput : {
+      border : 'none',
+      outline : "none",
+      borderRadius : "3px"
     }
 }));
 
@@ -51,19 +52,18 @@ const Header:React.FC<Props> = (props)=>{
   return (
       <AppBar position="static" className={classes.root}>
         <Toolbar className={classes.toolbar}>
-          <IconButton
+
+          
+          {/* <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
-          >
+          > */}
               {/* <Avatar alt="test" className={classes.large}/> */}
-              <input type="text" onChange={props.setCity}/>
-
             <MenuIcon />
-          </IconButton>
-          <Typography className={classes.title} variant="h5" noWrap>
-          </Typography>
+          <input type="text" onChange={props.setCity} className={classes.searchInput} placeholder="search..."/>
+          {/* </IconButton> */}
           <IconButton aria-label="search" color="inherit" onClick={props.search}>
             <SearchIcon  />
           </IconButton>

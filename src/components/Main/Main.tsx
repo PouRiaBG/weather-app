@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface Props {
-    cityName : string | "city"
-    temp : number | "0"
+    cityName : string
+    temp : number 
 }
 
 
