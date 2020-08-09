@@ -4,6 +4,8 @@ import Grid from '@material-ui/core/Grid';
 import OpacityOutlinedIcon from '@material-ui/icons/OpacityOutlined';
 import PublicIcon from '@material-ui/icons/Public';
 import CloudQueueIcon from '@material-ui/icons/CloudQueue';
+import {PropsWeatherInformation} from '../../Model/PropsWeather'
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -23,12 +25,8 @@ const useStyles = makeStyles((theme: Theme) =>
     }
   }),
 );
-interface PropsWeather {
-  country : string;
-  humidity : string ;
-  cloud : string ;
-}
-const  Footer:React.FC<PropsWeather> = (props)=> {
+
+const  Footer:React.FC<PropsWeatherInformation> = (props)=> {
   const classes = useStyles();
 
   return (

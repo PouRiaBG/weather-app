@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography'
+import {PropsWeather} from '../../Model/PropsWeather'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -15,16 +16,9 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-interface Props {
-    cityName : string
-    temp : number 
-}
 
-
-const  Main:React.FC<Props> = (props) => {
+const  Main:React.FC<PropsWeather> = (props) => {
   const classes = useStyles();
- 
-
   return (
    
       <Grid container direction="column" justify="space-evenly"  className={classes.root} >

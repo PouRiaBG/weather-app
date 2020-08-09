@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import image from '../../assets/blur.jpg'
-
+import {PropsWeatherFunctions} from '../../Model/PropsWeather'
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundImage: `url(${image})`,
@@ -39,31 +39,15 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-interface Props {
-  setCity : (event: React.ChangeEvent<HTMLInputElement>)=> void
-  search : () =>void
-}
+const Header:React.FC<PropsWeatherFunctions> = (props)=>{
 
-
-
-const Header:React.FC<Props> = (props)=>{
   const classes = useStyles();
 
   return (
       <AppBar position="static" className={classes.root}>
         <Toolbar className={classes.toolbar}>
-
-          
-          {/* <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          > */}
-              {/* <Avatar alt="test" className={classes.large}/> */}
             <MenuIcon />
           <input type="text" onChange={props.setCity} className={classes.searchInput} placeholder="search..."/>
-          {/* </IconButton> */}
           <IconButton aria-label="search" color="inherit" onClick={props.search}>
             <SearchIcon  />
           </IconButton>
